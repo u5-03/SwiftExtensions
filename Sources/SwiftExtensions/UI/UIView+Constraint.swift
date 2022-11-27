@@ -9,6 +9,10 @@ public enum ViewConstraintType {
     case height(height: CGFloat)
     case width(width: CGFloat)
     case sameRatio(height: CGFloat)
+    case sameWidth(view: UIView)
+    case sameHeight(view: UIView)
+    case multiplierWidth(view: UIView, multiplier: CGFloat)
+    case multiplierHeight(view: UIView, multiplier: CGFloat)
     case noConstraint
 }
 
@@ -38,6 +42,14 @@ public extension UIView {
         case .sameRatio(let height):
             heightAnchor.constraint(equalToConstant: height).isActive = true
             widthAnchor.constraint(equalTo: heightAnchor).isActive = true
+        case .sameWidth(view: let view):
+            widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+        case .sameHeight(view: let view):
+            heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+        case .multiplierWidth(view: let view, multiplier: let multiplier):
+            widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: multiplier).isActive = true
+        case .multiplierHeight(view: let view, multiplier: let multiplier):
+            heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: multiplier).isActive = true
         case .noConstraint: break
         }
     }

@@ -11,7 +11,7 @@ extension NSAttributedString {
     }
 }
 
-@_functionBuilder
+@resultBuilder
 public struct AttributedStringBuilder {
     public init() {}
 

@@ -7,4 +7,8 @@ import UIKit
 
 public extension UIEdgeInsets {
     static let zero = UIEdgeInsets()
+
+    static func all(length: CGFloat) -> UIEdgeInsets {
+        return UIEdgeInsets(top: length, left: length, bottom: length, right: length)
+    }
 }
